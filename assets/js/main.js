@@ -5,9 +5,8 @@ const DATE_FORMAT = {
   day: "numeric"
 };
 
+// Compares two dates
 const isSameDate = (date1, date2) => {
-  console.log(date1, date2);
-
   return (
     date1.getFullYear() == date2.getFullYear() &&
     date1.getMonth() == date2.getMonth() &&
@@ -19,8 +18,6 @@ let taskState = [];
 
 const renderTaskLists = () => {
   taskState.forEach(element => {
-    console.log(element.dueDate);
-
     let innerHtml = `
       <li class="task">
         <h1>${element.title}</h1>
@@ -31,14 +28,17 @@ const renderTaskLists = () => {
         )}</p>
       </li>`;
 
-    // If today is same date as duedate, render to today's list
+    // If today is same as duedate, render to today's list
     if (isSameDate(new Date(), new Date(element.dueDate.$date))) {
       $(".taskList-today").append(innerHtml);
-    } else {
+    }
+    // Otherwise, render to future list
+    else {
       $(".taskList-future").append(innerHtml);
     }
   });
 
+  // Add jQuery UI sorting
   $("#sortable1, #sortable2")
     .sortable({
       connectWith: ".connectedSortable",
@@ -49,6 +49,7 @@ const renderTaskLists = () => {
 
 $(document).ready(() => {
   API.getAllTasks().then(function(data) {
+    // Assign data to task state
     taskState = data;
 
     renderTaskLists();
