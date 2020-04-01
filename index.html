@@ -39,9 +39,13 @@
 
   <body>
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-6"></div>
-        <div class="taskList col-md-6"></div>
+      <div class="taskList-container row">
+        <div class="col-md-6">
+          <ul id="sortable1" class="taskList-today connectedSortable"></ul>
+        </div>
+        <div class="taskList-future col-md-6">
+          <ul id="sortable2" class="taskList-future connectedSortable"></ul>
+        </div>
       </div>
     </div>
 
@@ -50,6 +54,13 @@
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous"
     ></script>
+
+    <script
+      src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+      integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+      crossorigin="anonymous"
+    ></script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
