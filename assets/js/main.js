@@ -2,7 +2,7 @@ const DATE_FORMAT = {
   weekday: "long",
   year: "numeric",
   month: "long",
-  day: "numeric"
+  day: "numeric",
 };
 
 // Compares two dates
@@ -17,7 +17,7 @@ const isSameDate = (date1, date2) => {
 let taskState = [];
 
 const renderTaskLists = () => {
-  taskState.forEach(element => {
+  taskState.forEach((element) => {
     let innerHtml = `
       <li class="task">
         <h1>${element.title}</h1>
@@ -42,13 +42,13 @@ const renderTaskLists = () => {
   $("#sortable1, #sortable2")
     .sortable({
       connectWith: ".connectedSortable",
-      containment: ".taskList-container"
+      containment: ".taskList-container",
     })
     .disableSelection();
 };
 
 $(document).ready(() => {
-  API.getAllTasks().then(function(data) {
+  API.getAllTasks().then(function (data) {
     // Assign data to task state
     taskState = data;
 
