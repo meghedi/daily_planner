@@ -28,7 +28,7 @@ class api {
     }).then((response) => {
       localStorage.setItem("token", response.token);
 
-      return (window.location.href = "http://localhost:8081/");
+      return (window.location.href = "https://rdkelley.github.io/daily_planner/");
     });
   }
 }

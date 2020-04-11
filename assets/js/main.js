@@ -51,13 +51,13 @@ $(document).ready(() => {
   const token = localStorage.getItem("token");
 
   if (!token) {
-    window.location.href = "http://localhost:8081/signin";
+    window.location.href = "https://rdkelley.github.io/daily_planner/signin";
   }
 
   $("#logout").click(() => {
     localStorage.clear();
 
-    window.location.href = "http://localhost:8081/signin";
+    window.location.href = "https://rdkelley.github.io/daily_planner/signin";
   });
 
   API.getAllTasks().then(function (data) {
