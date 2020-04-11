@@ -18,20 +18,17 @@ class api {
     });
   }
 
-  signIn(email, password) {
+  signIn(email, password, errorHandler) {
     return $.ajax({
       url: "http://localhost:8080/api/signin",
       type: "POST",
       data: { email, password },
-      error: function (error) {
-        console.log("ERROR", error);
-      },
+      // This is the error handler function passed from signin.html
+      error: errorHandler,
     }).then((response) => {
-      console.log(response);
-
       localStorage.setItem("token", response.token);
 
-      return window.location.href = 'http://localhost:8081/';
+      return (window.location.href = "http://localhost:8081/");
     });
   }
 }
