@@ -1,7 +1,7 @@
 class api {
   getAllTasks() {
     return $.ajax({
-      url: "http://localhost:8080/api/tasks",
+      url: "https://daily-planner-api.herokuapp.com/api/tasks",
       type: "GET",
       contentType: "application/json",
       headers: {
@@ -20,7 +20,7 @@ class api {
 
   signIn(email, password, errorHandler) {
     return $.ajax({
-      url: "http://localhost:8080/api/signin",
+      url: "https://daily-planner-api.herokuapp.com/api/signin",
       type: "POST",
       data: { email, password },
       // This is the error handler function passed from signin.html
