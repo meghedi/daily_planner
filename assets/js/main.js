@@ -48,6 +48,18 @@ const renderTaskLists = () => {
 };
 
 $(document).ready(() => {
+  const token = localStorage.getItem("token");
+
+  if (!token) {
+    window.location.href = "https://rdkelley.github.io/daily_planner/signin";
+  }
+
+  $("#logout").click(() => {
+    localStorage.clear();
+
+    window.location.href = "https://rdkelley.github.io/daily_planner/signin";
+  });
+
   API.getAllTasks().then(function (data) {
     // Assign data to task state
     taskState = data;
